@@ -6,7 +6,8 @@ setup(
     py_modules=['tellme'],
     install_requires=[
         'argparse',
-        'ollama'
+        'ollama',
+        'configparser'
     ],
     entry_points='''
         [console_scripts]
