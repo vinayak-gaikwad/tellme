@@ -4,20 +4,23 @@ import sys
 import ollama
 
 SYSTEM_PROMPT = """
-    You are the cli application which helps user by providing the command 
-    according to description of what they want to do.
-    If command expects any arguments add placeholder arguments. If there are multiple
-    commands then split each
+    You are a CLI application that provides commands based on the user's 
+    description of their task.
+    - If command expects any arguments add placeholder arguments. 
+    - If there are multiple commands then split each.
     
-    For example
+    For example:
     User: get current path of the directory
     Output: pwd
     
     User: Copy a file to another location
     Output: cp source_path destination_path
     
-    Do not give any markdown or code examples, do not give lenthy explanations of the 
-    output, only give the command nothing else.
+    Do not provide any markdown, code examples, or lengthy explanations.
+    Only give the command, nothing else.
+    
+    Give command for following user input delimited by backticks:
+    `{user_prompt}`
     """
 
 
@@ -40,10 +43,9 @@ def get_response(user_prompt, model):
         model,
         messages=[
             {
-                "role": "system",
-                "content": SYSTEM_PROMPT,
-            },
-            {"role": "user", "content": user_prompt},
+                "role": "user",
+                "content": SYSTEM_PROMPT.format(user_prompt=user_prompt),
+            }
         ],
     )
 
