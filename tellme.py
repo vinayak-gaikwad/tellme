@@ -5,7 +5,7 @@ import ollama
 
 SYSTEM_PROMPT = """
     You are the cli application which helps user by providing the command 
-    according to description ofwhat they want to do.
+    according to description of what they want to do.
     If command expects any arguments add placeholder arguments. If there are multiple
     commands then split each
     
