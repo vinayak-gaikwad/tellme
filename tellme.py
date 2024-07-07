@@ -38,7 +38,6 @@ def write_config(config_file, model):
 
 
 def get_response(user_prompt, model):
-
     return ollama.chat(
         model,
         messages=[
@@ -62,13 +61,14 @@ def main():
 
     config_file = args.config or "config.ini"
     config = read_config(config_file)
+    model = "llama3:8b"
 
     if args.model:
         model = args.model
         write_config(config_file, model)
         print(f"Model updated to: {model}")
         sys.exit(0)
-    else:
+    if config is None:
         model = config["SETTINGS"].get("model", "llama3:8b")
 
     description = args.description
