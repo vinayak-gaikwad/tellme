@@ -17,15 +17,7 @@ pip install .
 ## Usage
   Type tellme followed by a clear description of your desired action.
   
-  **Examples**
-```
-tellme get current path of the directory
-```
-This will output the corresponding command, such as pwd.
-```
-tellme Copy a file to another location
-```
-This will output the corresponding command, such as cp source_path destination_path.
+[![asciicast](https://asciinema.org/a/a38IAVmKIrdrwXL3aZccA9D1C.svg)](https://asciinema.org/a/a38IAVmKIrdrwXL3aZccA9D1C)
 
 ## Configuration
 TellMe uses the llama3:8b model by default. To customize this, edit the config.ini file.
